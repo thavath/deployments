@@ -65,7 +65,7 @@ metadata:
   name: mjbl-kafka-broker-local
 spec:
   selector:
-    app: kafka-broker
+    app: mjbl-kafka-broker
   type: ClusterIP
   ports:
     - protocol: TCP

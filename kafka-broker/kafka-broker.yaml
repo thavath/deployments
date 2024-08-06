@@ -68,7 +68,7 @@ spec:
   ports:
     - protocol: TCP
       port: 9092
-      targetPort: 9092
+      targetPort: 9095
   type: LoadBalancer
 
 # ---

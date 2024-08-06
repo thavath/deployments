@@ -57,6 +57,12 @@ spec:
           value: "0"
         - name: KAFKA_NUM_PARTITIONS
           value: "3"
+        - name: KAFKA_MESSAGE_MAX_BYTES
+          value: "2000000000"  # 2 GB
+        - name: KAFKA_REPLICA_FETCH_MAX_BYTES
+          value: "2000000000"  # 2 GB
+        - name: KAFKA_MAX_REQUEST_SIZE
+          value: "2000000000"  # 2 GB
 ---
 apiVersion: v1
 kind: Service

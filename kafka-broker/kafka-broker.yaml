@@ -20,7 +20,8 @@ spec:
     spec:
       containers:
       - name: broker
-        image: apache/kafka:latest
+        image: docker.io/library/kafka:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 9092
         resources:

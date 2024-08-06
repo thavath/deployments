@@ -23,7 +23,7 @@ spec:
         image: apache/kafka:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 9026
+        - containerPort: 9092
           name: app-port
         resources:
           limits:
@@ -40,11 +40,11 @@ spec:
         - name: KAFKA_LISTENERS
           value: "PLAINTEXT://:9092,CONTROLLER://:9093"
         - name: KAFKA_ADVERTISED_LISTENERS
-          value: "PLAINTEXT://localhost:9026,PLAINTEXT://localhost:32099"
+          value: "PLAINTEXT://localhost:9092"
         - name: KAFKA_CONTROLLER_LISTENER_NAMES
           value: "CONTROLLER"
         - name: KAFKA_LISTENER_SECURITY_PROTOCOL_MAP
-          value: "CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT"
+          value: "CONTROLLER:PLAINTEXT"
         - name: KAFKA_CONTROLLER_QUORUM_VOTERS
           value: "1@mjbl-kafka-broker:9093"
         - name: KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR
@@ -69,7 +69,7 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 9026
+      port: 9092
       targetPort: app-port
 
 ---
@@ -84,6 +84,6 @@ spec:
     app: mjbl-kafka-broker
   ports:
     - protocol: TCP
-      port: 9026
+      port: 9092
       targetPort: app-port
       nodePort: 32099

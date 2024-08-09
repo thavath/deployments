@@ -45,7 +45,7 @@ spec:
     app: springboot-app
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8082
       targetPort: 8080
   type: LoadBalancer
 
@@ -68,4 +68,4 @@ spec:
               service:
                 name: springboot-service
                 port:
-                  number: 8080
+                  number: 8082

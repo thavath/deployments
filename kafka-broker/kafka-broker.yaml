@@ -90,5 +90,6 @@ spec:
     app: mjbl-kafka-broker
   ports:
     - protocol: TCP
+      port: 9092
       targetPort: app-port
       nodePort: 32099

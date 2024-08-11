@@ -23,7 +23,7 @@ spec:
         - name: springboot-app
           image: 064657201839.dkr.ecr.ap-southeast-1.amazonaws.com/docker-image:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8085
           resources:
             limits:
               memory: "512Mi"
@@ -45,8 +45,8 @@ spec:
     app: springboot-app
   ports:
     - protocol: TCP
-      port: 8082
-      targetPort: 8080
+      port: 8085
+      targetPort: 8085
   type: LoadBalancer
 
 ---
@@ -68,4 +68,4 @@ spec:
               service:
                 name: springboot-service
                 port:
-                  number: 8082
+                  number: 8085

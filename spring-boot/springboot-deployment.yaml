@@ -7,20 +7,20 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-app
+  name: springboot-app-v1
   namespace: springboot-namespace
 spec:
   selector:
     matchLabels:
-      app: springboot-app
+      app: springboot-app-v1
   replicas: 1
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: springboot-app-v1
     spec:
       containers:
-        - name: springboot-app
+        - name: springboot-app-v1
           image: 064657201839.dkr.ecr.ap-southeast-1.amazonaws.com/docker-image:24cd821d2da651145831ac8f92939a4945530e25
           ports:
             - containerPort: 8085
@@ -42,7 +42,7 @@ metadata:
   namespace: springboot-namespace
 spec:
   selector:
-    app: springboot-app
+    app: springboot-app-v1
   ports:
     - protocol: TCP
       port: 8085

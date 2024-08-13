@@ -32,7 +32,7 @@ spec:
               memory: "256Mi"
               cpu: "500m"
       imagePullSecrets:
-        - name: ecr-registry-secret-name
+        - name: secret/ecr-registry-secret-spring
 
 ---
 apiVersion: v1

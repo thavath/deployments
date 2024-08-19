@@ -7,21 +7,21 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-app
+  name: springboot-app-v1
   namespace: springboot-namespace
 spec:
   selector:
     matchLabels:
-      app: springboot-app
+      app: springboot-app-v1
   replicas: 1
   template:
     metadata:
       labels:
-        app: springboot-app
+        app: springboot-app-v1
     spec:
       containers:
-        - name: springboot-app
-          image: 064657201839.dkr.ecr.ap-southeast-1.amazonaws.com/docker-image:latest
+        - name: springboot-app-v1
+          image: 064657201839.dkr.ecr.ap-southeast-1.amazonaws.com/docker-image:a81f6526371445824ceae934121dc816a5731577
           ports:
             - containerPort: 8080
           resources:
@@ -42,10 +42,10 @@ metadata:
   namespace: springboot-namespace
 spec:
   selector:
-    app: springboot-app
+    app: springboot-app-v1
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8085
       targetPort: 8080
   type: LoadBalancer
 
@@ -68,4 +68,4 @@ spec:
               service:
                 name: springboot-service
                 port:
-                  number: 8080
+                  number: 8085

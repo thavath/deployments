@@ -7,16 +7,16 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kafka-broker
+  name: mjbl-kafka-broker
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kafka-broker
+      app: mjbl-kafka-broker
   template:
     metadata:
       labels:
-        app: kafka-broker
+        app: mjbl-kafka-broker
     spec:
       containers:
       - name: kafka-broker
@@ -87,7 +87,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: kafka-broker
+    app: mjbl-kafka-broker
   ports:
     - protocol: TCP
       port: 9092

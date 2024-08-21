@@ -71,11 +71,10 @@ metadata:
   name: postgres-database
   namespace: database-storage-ns
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: postgres-database
   ports:
     - protocol: TCP
       port: 5432
-      targetPort: app-port
-      nodePort: 32456
+      targetPort: 5432

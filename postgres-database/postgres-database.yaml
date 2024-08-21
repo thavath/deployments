@@ -1,7 +1,14 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: database-storage-ns
+
+---
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-database-pvc
+  namespace: database-storage-ns
 spec:
   accessModes:
     - ReadWriteOnce
@@ -12,7 +19,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: database-storage-ns
+  name: postgres-database
+  namespace: database-storage-ns
 spec:
   replicas: 1
   selector:
@@ -29,7 +37,7 @@ spec:
         ports:
         - containerPort: 5432
         env:
-        - name: postgres-database_PASSWORD
+        - name: POSTGRES_PASSWORD
           value: "postgres-database"
         - name: PGDATA
           value: "/var/lib/postgresql/data/pgdata"
@@ -44,7 +52,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres-database-service
+  name: postgres-database
   namespace: database-storage-ns
 spec:
   selector:

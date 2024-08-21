@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: postgres-database
-        image: postgres-database
+        image: postgres
         ports:
         - containerPort: 5432
         env:

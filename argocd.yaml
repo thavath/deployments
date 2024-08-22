@@ -4,7 +4,7 @@ metadata:
   name: springboot-app #change app name
 spec:
   destination:
-    name: ''
+    name: '' 
     namespace: springboot-namespace #change namespace
     server: 'https://kubernetes.default.svc'
   source:

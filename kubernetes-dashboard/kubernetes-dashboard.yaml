@@ -14,8 +14,8 @@ spec:
     app: kubernetes-dashboard
   ports:
     - protocol: TCP
-      port: 443
-      targetPort: 8443
+      port: 8443
+      targetPort: 443
   type: ClusterIP
 
 ---
@@ -29,6 +29,7 @@ spec:
     app: kubernetes-dashboard
   ports:
     - protocol: TCP
-      port: 443
-      targetPort: 8443
+      port: 8443
+      targetPort: 443
+      name: https
   type: LoadBalancer

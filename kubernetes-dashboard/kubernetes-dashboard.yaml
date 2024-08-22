@@ -15,26 +15,20 @@ spec:
   ports:
     - protocol: TCP
       port: 443
-      targetPort: 443
+      targetPort: 8443
   type: ClusterIP
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: kubernetes-dashboard-ingress
+  name: kubernetes-dashboard-kong-proxy
   namespace: kubernetes-dashboard
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
-    - host: localhost
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: kubernetes-dashboard-kong-proxy
-                port:
-                  number: 443
+  selector:
+    app: kubernetes-dashboard
+  ports:
+    - protocol: TCP
+      port: 443
+      targetPort: 8443
+  type: LoadBalancer

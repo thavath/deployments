@@ -7,7 +7,7 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kubernetes-dashboard-kong-proxy
+  name: kubernetes-dashboard-kong-proxy-local
   namespace: kubernetes-dashboard
 spec:
   selector:

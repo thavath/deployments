@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: springboot-app
+  name: springboot-app #change app name
 spec:
   destination:
     name: ''
-    namespace: springboot-namespace
+    namespace: springboot-namespace #change namespace
     server: 'https://kubernetes.default.svc'
   source:
-    path: spring-boot
+    path: spring-boot # change git deployment path
     repoURL: 'https://github.com/thavath/deployments.git'
     targetRevision: HEAD
   sources: []
